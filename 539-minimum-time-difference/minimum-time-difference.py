@@ -17,4 +17,7 @@ class Solution:
             diff = curr - prev
             res = min(diff, res)
 
+            if res == 0:
+                return 0
+
         return res
