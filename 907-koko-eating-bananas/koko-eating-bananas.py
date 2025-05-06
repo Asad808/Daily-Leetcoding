@@ -6,22 +6,14 @@ class Solution(object):
         :rtype: int
         """
 
-        n = len(piles)
-        max_pile = max(piles)
-        # Tighter upper bound: hi = ceil(max_pile / (h / n))
-        hi = ceil(max_pile / (h / n))
-        
-        lo = max(1, ceil(sum(piles)/h)) 
-        while lo <= hi:
-            curr_guess = (lo + hi) // 2
-            hours_passed = sum(ceil(pile / curr_guess) for pile in piles)
-            
-            if hours_passed > h:
-                lo = curr_guess + 1
+        l, r = 1, max(piles)
+        while l < r:
+            m = (l + r) // 2
+            if sum((p + m - 1) // m for p in piles) > h:
+                l = m + 1
             else:
-                hi = curr_guess - 1
-                
-        return int(lo)
+                r = m
+        return l
 
 
         # l, r = 1, max(piles)
