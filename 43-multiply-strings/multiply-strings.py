@@ -11,14 +11,14 @@ class Solution(object):
         combined2 = 0
 
         for num in num1:
-            arr.append(ord(num) - ord("0"))
-        for a in arr:
-            combined1 = combined1*10 + a
+            # arr.append(ord(num) - ord("0"))
+        # for a in arr:
+            combined1 = combined1*10 + ord(num) - ord("0")
 
         
         for num in num2:
-            arr2.append(ord(num) - ord("0"))
-        for a in arr2:
-            combined2 = combined2*10 + a
+            # arr2.append(ord(num) - ord("0"))
+        # for a in arr2:
+            combined2 = combined2*10 + ord(num) - ord("0")
 
         return str(combined1*combined2)
